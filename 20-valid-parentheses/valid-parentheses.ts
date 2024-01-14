@@ -7,7 +7,6 @@ function isValid(s: string): boolean {
     const stack = [];
 
     for(const i of s){
-        console.log(i,stack,map[i])
         if(["(","[","{"].includes(i))stack.push(i)
         else if(stack.pop() !== map[i])return false   
     }
