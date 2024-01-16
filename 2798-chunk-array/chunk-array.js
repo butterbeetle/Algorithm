@@ -1,4 +1,4 @@
-/**
+/** // 00:05:00
  * @param {Array} arr
  * @param {number} size
  * @return {Array}
