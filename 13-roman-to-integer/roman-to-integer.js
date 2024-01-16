@@ -16,7 +16,9 @@ var romanToInt = function(s) {
     let sum = 0;
 
     for(let i=0; i<s.length-1; i++){
-        sum = roman[s[i]] < roman[s[i+1]] ? sum -= roman[s[i]] : sum += roman[s[i]]   
+        sum = roman[s[i]] < roman[s[i+1]] 
+        ? sum -= roman[s[i]] 
+        : sum += roman[s[i]]   
     }
 
     return sum + roman[s.at(-1)]
