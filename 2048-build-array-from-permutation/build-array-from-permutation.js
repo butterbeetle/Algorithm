@@ -6,13 +6,14 @@ var buildArray = function(nums) {
     const arr = []
     
     // 65ms
-    // nums.forEach((num,i)=>{
-    //     arr[i] = nums[num]
-    // })
+    nums.forEach((num,i)=>{
+        arr[i] = nums[num]
+    })
 
-    for(let i=0; i<nums.length; i++){
-        arr[i] = nums[nums[i]]
-    }
+    //67ms
+    // for(let i=0; i<nums.length; i++){
+    //     arr[i] = nums[nums[i]]
+    // }
 
     return arr
 };
