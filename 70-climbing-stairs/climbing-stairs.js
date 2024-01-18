@@ -3,13 +3,13 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-    const fibo = [0,1,2,3]
+    const step = [0,1,2,3]
     
     for(let i=4; i<=n; i++){
-        fibo[i] = fibo[i-1] + fibo[i-2]
+        step[i] = step[i-1] + step[i-2]
     }
-    
-    return fibo[n]
+
+    return step[n]
 };
 
 /**
