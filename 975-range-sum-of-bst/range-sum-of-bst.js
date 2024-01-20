@@ -12,15 +12,11 @@
  * @param {number} high
  * @return {number}
  */
-var rangeSumBST = function(root, low, high) {
+var rangeSumBST = function (root, low, high) {
 
-    const holy = (node) => {
-        if(node == null) return 0; 
-        let sum = 0;
-        
-        if(low<=node.val && node.val<=high) sum = node.val;
-        return sum + holy(node.left) + holy(node.right)
-    }
+    if (root == null) return 0;
+    let sum = 0;
 
-    return holy(root)
-};
+    if (low <= root.val && root.val <= high) sum = root.val;
+    return sum + rangeSumBST(root.left, low, high) + rangeSumBST(root.right, low, high)
+}
