@@ -13,18 +13,14 @@
  * @return {number}
  */
 var rangeSumBST = function(root, low, high) {
-    
-    let sum = 0;
 
     const holy = (node) => {
-        if(node == null) return; 
+        if(node == null) return 0; 
+        let sum = 0;
         
-        if(low<=node.val && node.val<=high) sum+=node.val;
-        holy(node.left)
-        holy(node.right)
+        if(low<=node.val && node.val<=high) sum = node.val;
+        return sum + holy(node.left) + holy(node.right)
     }
-    
-    holy(root)
 
-    return sum
+    return holy(root)
 };
