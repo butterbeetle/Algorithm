@@ -1,2 +1,3 @@
 # Algorithm
-Collection of LeetCode questions to ace the coding interview! - Created using [LeetHub v2](https://github.com/arunbhardwaj/LeetHub-2.0)
+
+LeetCode에서 해결한 문제들의 모음집
