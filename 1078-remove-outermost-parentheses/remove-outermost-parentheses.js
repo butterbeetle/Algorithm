@@ -15,8 +15,6 @@ var removeOuterParentheses = function(str) {
         stack.push(s);
 
         if(leftParenthesis === rightParenthesis){
-            leftParenthesis = 0;
-            rightParenthesis = 0;
             stack.shift();
             stack.pop();
             output += stack.join("")
