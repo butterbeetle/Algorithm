@@ -1,4 +1,4 @@
-/**
+/** 00:24:29
  * @param {number[]} arr
  * @return {boolean}
  */
@@ -9,6 +9,6 @@ var validMountainArray = function(arr) {
     while(step < arr.length && arr[step] < arr[step+1]) step++;
     if(!step || step === arr.length-1) return false
     while(step < arr.length && arr[step] > arr[step+1]) step++;
-    
+
     return step === arr.length-1
 };
