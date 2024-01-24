@@ -5,6 +5,7 @@
 var areaOfMaxDiagonal = function(dimensions) {
     let max = 0;
     let output = 0;
+    
     for(const i in dimensions){
         const [len, wid] = dimensions[i]
         const Diagonal = Math.sqrt((len**2)+(wid**2))
@@ -14,7 +15,7 @@ var areaOfMaxDiagonal = function(dimensions) {
         }else if(max === Diagonal){
             output = output < (len*wid) ? (len*wid) : output
         }
-        
     }
+
     return output
 };
