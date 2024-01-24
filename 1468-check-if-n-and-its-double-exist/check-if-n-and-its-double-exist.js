@@ -1,4 +1,4 @@
-/**
+/** 00:03:30
  * @param {number[]} arr
  * @return {boolean}
  */
