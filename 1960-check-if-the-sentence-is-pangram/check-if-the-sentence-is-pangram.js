@@ -1,4 +1,4 @@
-/**
+/** 00:00:30
  * @param {string} sentence
  * @return {boolean}
  */
