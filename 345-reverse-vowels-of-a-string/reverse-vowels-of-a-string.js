@@ -3,15 +3,12 @@
  * @return {string}
  */
 var reverseVowels = function (s) {
+    const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
     const arr = [];
     let str = "";
 
     const isVowel = (c) => {
-        if (c === "a" || c === "A" ||
-            c === "e" || c === "E" ||
-            c === "i" || c === "I" || 
-            c === "o" || c === "O" || 
-            c === "u" || c === "U" ) return true
+        if (vowels.includes(c)) return true
         return false
     }
 
