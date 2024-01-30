@@ -1,41 +1,33 @@
-/**
+/** 00:20:47
  * @param {string[]} tokens
  * @return {number}
  */
 var evalRPN = function (tokens) {
     const stack = []
-    let output = 0;
-    console.log(Math.floor)
+    const sign = ["+","-","*","/"];
+
     for (const token of tokens) {
-        if (token === "+") {
+        if(sign.includes(token)){
             const rightToken = stack.pop();
             const leftToken = stack.pop();
-            console.log(leftToken, "+", rightToken)
-            output = leftToken + rightToken
-            stack.push(output)
-        } else if (token === "-") {
-            const rightToken = stack.pop();
-            const leftToken = stack.pop();
-            console.log(leftToken, "-", rightToken)
-            output = leftToken - rightToken
-            stack.push(output)
-        } else if (token === "*") {
-            const rightToken = stack.pop();
-            const leftToken = stack.pop();
-            console.log(leftToken, "*", rightToken)
-            output = leftToken * rightToken
-            stack.push(output)
-        } else if (token === "/") {
-            const rightToken = stack.pop();
-            const leftToken = stack.pop();
-            console.log(leftToken, "/", rightToken)
-            output = leftToken / rightToken
-            stack.push(output < 0 ? Math.ceil(output) : Math.floor(output))
-        } else {
+            switch(token){
+                case "+":
+                    stack.push(leftToken + rightToken)
+                    break;
+                case "-":
+                    stack.push(leftToken - rightToken)
+                    break;
+                case "*":
+                    stack.push(leftToken * rightToken)
+                    break;
+                case "/":
+                    stack.push(Math.trunc(leftToken / rightToken))
+                    break;
+            }
+        }else{
             stack.push(parseInt(token))
         }
-        console.log(stack.length, output)
     }
-    if(stack.length === 1) output = stack.pop()
-    return output
+    
+    return stack[0]
 };
