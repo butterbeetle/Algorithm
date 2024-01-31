@@ -11,7 +11,7 @@ var lemonadeChange = function (bills) {
         if (bill === 10) {
             map.set(5, (map.get(5) || 0) - 1)
         } else if (bill === 20) {
-            if (map.get(10) > 0 && map.get(5) > 0) {
+            if (map.get(10) && map.get(5)) {
                 map.set(10, (map.get(10) || 0) - 1)
                 map.set(5, (map.get(5) || 0) - 1)
             }
@@ -19,13 +19,13 @@ var lemonadeChange = function (bills) {
         }
 
         if (map.get(5) < 0 || map.get(10) < 0) return false
-        console.log(bill, map)
+
     }
 
     for (const v of map.values()) {
         if (v < 0) return false
     }
-    console.log(map)
+
     return true
 };
 
