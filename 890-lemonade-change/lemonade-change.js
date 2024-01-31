@@ -3,27 +3,25 @@
  * @return {boolean}
  */
 var lemonadeChange = function (bills) {
-    const map = new Map();
+    let count_5 = 0;
+    let count_10 = 0;
+
+    if (bills[0] !== 5) return false;
 
     for (const bill of bills) {
-        map.set(bill, (map.get(bill) || 0) + 1)
-
-        if (bill === 10) {
-            map.set(5, (map.get(5) || 0) - 1)
+        if (bill === 5) count_5++;
+        else if (bill === 10) {
+            if (!count_5) return false
+            count_10++;
+            count_5--;
         } else if (bill === 20) {
-            if (map.get(10) && map.get(5)) {
-                map.set(10, (map.get(10) || 0) - 1)
-                map.set(5, (map.get(5) || 0) - 1)
-            }
-            else map.set(5, (map.get(5) || 0) - 3)
+            if (count_5 && count_10) {
+                count_10--;
+                count_5--;
+            } else if (count_5 >= 3) {
+                count_5 -= 3;
+            } else return false;
         }
-
-        if (map.get(5) < 0 || map.get(10) < 0) return false
-
-    }
-
-    for (const v of map.values()) {
-        if (v < 0) return false
     }
 
     return true
