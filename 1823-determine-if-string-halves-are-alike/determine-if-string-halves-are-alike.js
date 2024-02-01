@@ -1,4 +1,4 @@
-/**
+/** 00:05:18
  * @param {string} s
  * @return {boolean}
  */
@@ -11,7 +11,6 @@ var halvesAreAlike = function (s) {
     let b_cnt = 0;
 
     for(const i in a){
-        console.log(a[i],b[i])
         if(vowels.includes(a[i])) a_cnt++;
         if(vowels.includes(b[i])) b_cnt++;
     }
