@@ -3,24 +3,25 @@
  * @return {boolean}
  */
 var judgeCircle = function (moves) {
-    const s = [0, 0]
+    let x = 0;
+    let y = 0;
 
     for (const move of moves) {
         switch (move) {
             case "R":
-                s[0]++
+                x++
                 break;
             case "L":
-                s[0]--
+                x--
                 break;
             case "U":
-                s[1]++
+                y++
                 break;
             case "D":
-                s[1]--
+                y--
                 break;
         }
     }
     
-    return !s[0] && !s[1]
+    return !x && !y
 };
