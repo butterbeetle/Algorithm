@@ -16,8 +16,8 @@ var alternatingSubarray = function (nums) {
                     if (slice_arr[j] - slice_arr[j - 1] !== Math.pow(-1, j + 1)) noop = true
                     if (noop) break;
                 }
-                if (!noop) output = output < len ? len : output
-            } else if(slice_arr[1] === slice_arr[0] + 1) output = output < len ? len : output
+                if (!noop) output = Math.max(output, len)
+            } else if (slice_arr[1] === slice_arr[0] + 1) output = Math.max(output, len)
         }
         l++;
     }
