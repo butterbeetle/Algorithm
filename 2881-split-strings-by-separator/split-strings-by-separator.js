@@ -5,8 +5,10 @@
  */
 var splitWordsBySeparator = function (words, separator) {
     const output = [];
+
     for (const word of words) {
-        output.push(word.split(separator).filter(v => v))
+        output.push(word.split(separator).filter(Boolean))
     }
+    
     return [].concat(...output)
 };
