@@ -1,4 +1,4 @@
-/**
+/** 00:01:30
  * @param {number} purchaseAmount
  * @return {number}
  */
