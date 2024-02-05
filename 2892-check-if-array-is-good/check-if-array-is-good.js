@@ -2,23 +2,22 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var isGood = function(nums) {
-    const map = new Map();
-    const sorted = nums.sort((a,b)=>a-b);
-    const base = sorted[nums.length-1]
-    
-    if(nums.length <= base) return false
+var isGood = function (nums) {
+    const base = Math.max(...nums)
 
-    console.log(sorted)
-    let i=0;
-    while(i<nums.length-1){
-        if(sorted[i] !== (i+1)) return false
-        map.set(nums[i], (map.get(nums[i])||0)+1)
+    if (nums.length <= base) return false
+
+    const map = new Map();
+    const sorted = nums.sort((a, b) => a - b);
+    let i = 0;
+
+    while (i < nums.length - 1) {
+        if (sorted[i] !== (i + 1)) return false
+        map.set(nums[i], (map.get(nums[i]) || 0) + 1)
         i++;
     }
-    
-    map.set(nums[i], (map.get(nums[i])||0)+1)
 
-    console.log(map)
+    map.set(nums[i], (map.get(nums[i]) || 0) + 1)
+
     return map.get(base) === 2
 };
