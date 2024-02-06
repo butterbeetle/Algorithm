@@ -12,7 +12,6 @@ var groupAnagrams = function(strs) {
         sorted.push(s)
         if(!map.has(s)) map.set(s, idx++)
     }
-    console.log(map)
     
     const arr = Array.from(Array(map.size),()=>[])
 
