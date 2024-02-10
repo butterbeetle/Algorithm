@@ -13,7 +13,7 @@ var missingInteger = function (nums) {
     if (!nums.includes(output)) return output;
 
     while (nums.includes(output)) {
-        output += 1
+        output++;
     }
 
     return output
