@@ -9,8 +9,8 @@ var selfDividingNumbers = function (left, right) {
     for (let i = left; i <= right; i++) {
         let isDividingNumber = true
 
-        for (const d of i + "") {
-            if (!d || (i % d) != 0) isDividingNumber = false
+        for (const digit of i + "") {
+            if (!digit || (i % digit) != 0) isDividingNumber = false
         }
 
         if (isDividingNumber) output.push(i)
