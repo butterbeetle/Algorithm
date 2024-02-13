@@ -4,10 +4,10 @@
  */
 var arrayPairSum = function (nums) {
     let output = 0;
-    const arr = nums.sort((a, b) => a - b)
+    nums = nums.sort((a, b) => a - b)
 
-    for (let i = 0; i < arr.length; i += 2) {
-        output += arr[i]
+    for (let i = 0; i < nums.length; i += 2) {
+        output += nums[i]
     }
 
     return output
