@@ -5,16 +5,15 @@
  */
 var findingUsersActiveMinutes = function (logs, k) {
     let output = new Array(k).fill(0)
-    const idMap = new Map();
+    const map = new Map();
 
     for (const [id, time] of logs) {
-        const arr = (idMap.get(id) ?? []).concat([time])
-        idMap.set(id, arr)
+        if (!map.has(id)) map.set(id, new Set())
+        map.set(id, map.get(id).add(time))
     }
 
-    for (const v of idMap.values()) {
-        const size = new Set(v).size - 1
-        output[size]++;
+    for (const v of map.values()) {
+        output[v.size - 1]++;
     }
 
 
