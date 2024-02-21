@@ -9,8 +9,8 @@ var countSymmetricIntegers = function (low, high) {
     for (let i = low; i <= high; i++) {
         const str = i + ""
         if (!(str.length % 2)) {
-            const x = str.substring(0, str.length / 2).split("").reduce((acc, cur) => acc + (+cur), 0)
-            const y = str.substring(str.length / 2).split("").reduce((acc, cur) => acc + (+cur), 0)
+            const x = [...str.substring(0, str.length / 2)].reduce((acc, cur) => acc + (+cur), 0)
+            const y = [...str.substring(str.length / 2)].reduce((acc, cur) => acc + (+cur), 0)
             if (x === y) output++;
         }
     }
