@@ -4,7 +4,6 @@
  * @return {number}
  */
 var countSymmetricIntegers = function (low, high) {
-    if ((low.length % 2) && low.length === high.length) return 0;
     let output = 0;
 
     for (let i = low; i <= high; i++) {
