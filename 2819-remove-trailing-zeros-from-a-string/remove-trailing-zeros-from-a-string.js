@@ -6,11 +6,8 @@ var removeTrailingZeros = function (num) {
     let idx = 0;
 
     for (let i = num.length - 1; i >= 0; i--) {
-        if (num[i] != 0) {
-            idx = i;
-            break;
-        }
+        if (num[i] != 0) return num.substring(0, i + 1)
     }
 
-    return num.substring(0, idx + 1)
+    return num
 };
