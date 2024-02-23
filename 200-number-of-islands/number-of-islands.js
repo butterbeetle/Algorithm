@@ -9,7 +9,9 @@ var numIslands = function (grid) {
 
     const tsunami = (row, col) => {
         if (row < 0 || row >= m || col < 0 || col >= n || grid[row][col] == 0) return
-        grid[row][col] = "0";
+
+        grid[row][col] = 0;
+
         tsunami(row - 1, col);
         tsunami(row + 1, col);
         tsunami(row, col - 1);
