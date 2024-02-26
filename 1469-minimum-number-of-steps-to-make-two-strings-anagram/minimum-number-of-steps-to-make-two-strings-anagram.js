@@ -13,8 +13,8 @@ var minSteps = function (s, t) {
     }
 
     for (const v of m1.values()) {
-        if (v > 0) output += v;
+        output += Math.abs(v);
     }
 
-    return output
+    return output / 2
 };
