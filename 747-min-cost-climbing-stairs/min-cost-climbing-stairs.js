@@ -4,7 +4,7 @@
  */
 var minCostClimbingStairs = function (cost) {
     const arrivals = cost.length;
-    const dp = new Array(arrivals).fill(0)
+    const dp = new Array(arrivals)
 
     for (let i = 0; i < arrivals; i++) {
         if (i < 2) dp[i] = cost[i];
