@@ -6,8 +6,7 @@ var countGoodSubstrings = function (s) {
     let output = 0;
 
     for (let i = 0; i < s.length - 2; i++) {
-        const str = s.substring(i, i + 3)
-        if (str.length === new Set(str).size) output++;
+        if (new Set(s.substring(i, i + 3)).size === 3) output++;
     }
 
     return output
