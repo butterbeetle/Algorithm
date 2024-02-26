@@ -9,12 +9,5 @@ var areOccurrencesEqual = function (s) {
         m.set(c, (m.get(c) || 0) + 1)
     }
 
-    let occurrences = 0;
-
-    for (const v of m.values()) {
-        if (!occurrences) occurrences = v;
-        else if (occurrences !== v) return false
-    }
-
-    return true
+    return new Set([...m.values()]).size === 1
 };
