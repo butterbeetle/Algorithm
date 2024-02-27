@@ -7,12 +7,10 @@ var diStringMatch = function (s) {
     let low = 0;
     const arr = [];
 
-    for (const oper of s) {
-        if (oper === "I") arr.push(low++);
-        else arr.push(high--);
+    for (let i=0; i<=s.length; i++) {
+        if (s[i] === "I") arr[i] = low++;
+        else arr[i] = high--;
     }
-
-    arr.push(low)
 
     return arr
 };
