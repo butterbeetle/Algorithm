@@ -11,7 +11,6 @@ var convertTime = function (current, correct) {
     let diff = (corH * 60 + Number(corM)) - (curH * 60 + Number(curM))
 
     while (diff) {
-        console.log(diff, output)
         output++;
         if (diff >= 60) diff -= 60;
         else if (diff >= 15) diff -= 15;
