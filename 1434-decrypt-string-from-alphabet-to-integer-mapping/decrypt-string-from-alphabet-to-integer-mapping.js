@@ -3,15 +3,15 @@
  * @return {string}
  */
 var freqAlphabets = function (s) {
-    const alphabet = '0abcdefghijklmnopqrstuvwxyz';
     let output = "";
+    const alpha = '0abcdefghijklmnopqrstuvwxyz';
 
     for (let i = 0; i < s.length;) {
         if (s[i + 2] === "#") {
-            output += alphabet[parseInt(s[i] + s[i + 1])]
+            output += alpha[parseInt(s[i] + s[i + 1])]
             i += 3;
         } else {
-            output += alphabet[parseInt(s[i])]
+            output += alpha[parseInt(s[i])]
             i++;
         }
     }
