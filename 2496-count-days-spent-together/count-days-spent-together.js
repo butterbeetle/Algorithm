@@ -1,4 +1,4 @@
-/**
+/** 00:10:32
  * @param {string} arriveAlice
  * @param {string} leaveAlice
  * @param {string} arriveBob
@@ -11,19 +11,15 @@ var countDaysTogether = function (arriveAlice, leaveAlice, arriveBob, leaveBob) 
 
     const converter = (s) => {
         const [m, d] = s.split("-")
-        console.log(m,d)
-        console.log(month.slice(0,m-1).reduce((acc, cur) => acc + cur, 0))
-        return +month.slice(0, m-1).reduce((acc, cur) => acc + cur, 0) + +d
+        return +month.slice(0, m - 1).reduce((acc, cur) => acc + cur, 0) + +d
     }
     const aA = converter(arriveAlice);
     const lA = converter(leaveAlice);
     const aB = converter(arriveBob)
     const lB = converter(leaveBob);
 
-    console.log(aA, lA, aB, lB)
-
-    for(let i=aA; i<=lA; i++){
-        if(aB<=i && i<=lB) output++;
+    for (let i = aA; i <= lA; i++) {
+        if (aB <= i && i <= lB) output++;
     }
 
     return output
