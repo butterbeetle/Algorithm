@@ -7,7 +7,6 @@ var isPossibleToSplit = function (nums) {
 
     for (const num of nums) {
         map.set(num, (map.get(num) || 0) + 1)
-        console.log(map)
         if (map.get(num) > 2) return false
     }
 
