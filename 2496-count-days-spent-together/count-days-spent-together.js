@@ -1,4 +1,4 @@
-/** 00:10:32
+/**
  * @param {string} arriveAlice
  * @param {string} leaveAlice
  * @param {string} arriveBob
@@ -6,12 +6,12 @@
  * @return {number}
  */
 var countDaysTogether = function (arriveAlice, leaveAlice, arriveBob, leaveBob) {
-    const month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let output = 0;
 
     const converter = (s) => {
+        const calendar = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
         const [m, d] = s.split("-")
-        return +month.slice(0, m - 1).reduce((acc, cur) => acc + cur, 0) + +d
+        return (calendar[m - 1] ?? 0) + +d
     }
     const aA = converter(arriveAlice);
     const lA = converter(leaveAlice);
