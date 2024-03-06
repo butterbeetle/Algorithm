@@ -18,22 +18,18 @@ var executeInstructions = function (n, startPos, s) {
         return [pos[0] + moveSet[oper][0], pos[1] + moveSet[oper][1]]
     }
 
-    const t = (pos, command) => {
+    for (let i = 0; i < s.length; i++) {
         let cnt = 0;
-        let tmp = [...pos];
+        let tmp = [...startPos];
 
-        for (const char of command) {
+        for (const char of s.slice(i)) {
             const [x, y] = move(tmp, char);
             if (x < 0 || y < 0 || x >= n || y >= n) break;
             tmp = [x, y]
             cnt++;
         }
 
-        return cnt;
-    }
-
-    for (let i = 0; i < s.length; i++) {
-        output.push(t(startPos, s.slice(i)))
+        output.push(cnt)
     }
 
     return output
