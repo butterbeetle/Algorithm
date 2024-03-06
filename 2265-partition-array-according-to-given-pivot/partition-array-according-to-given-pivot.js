@@ -4,7 +4,6 @@
  * @return {number[]}
  */
 var pivotArray = function (nums, pivot) {
-    const output = [];
     const less = [];
     const pivots = [];
     const greater = [];
@@ -15,17 +14,5 @@ var pivotArray = function (nums, pivot) {
         else pivots.push(num)
     }
 
-    for (const num of less) {
-        output.push(num)
-    }
-
-    for (const num of pivots) {
-        output.push(num)
-    }
-
-    for (const num of greater) {
-        output.push(num)
-    }
-
-    return output
+    return less.concat(pivots, greater)
 };
