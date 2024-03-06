@@ -1,4 +1,4 @@
-/**
+/** 00:31:44
  * @param {number} n
  * @param {number[]} startPos
  * @param {string} s
@@ -6,7 +6,7 @@
  */
 var executeInstructions = function (n, startPos, s) {
     const output = [];
-    
+
     const move = (pos, oper) => {
         const moveSet = {
             "R": [0, 1],
@@ -15,28 +15,25 @@ var executeInstructions = function (n, startPos, s) {
             "D": [1, 0]
         }
 
-        pos[0] += moveSet[oper][0]
-        pos[1] += moveSet[oper][1]
-
-        return pos
+        return [pos[0] + moveSet[oper][0], pos[1] + moveSet[oper][1]]
     }
 
     const t = (pos, command) => {
         let cnt = 0;
         let tmp = [...pos];
-        
+
         for (const char of command) {
             const [x, y] = move(tmp, char);
             if (x < 0 || y < 0 || x >= n || y >= n) break;
             tmp = [x, y]
             cnt++;
         }
+
         return cnt;
     }
 
     for (let i = 0; i < s.length; i++) {
-        const command = s.slice(i);
-        output.push(t(startPos, command))
+        output.push(t(startPos, s.slice(i)))
     }
 
     return output
