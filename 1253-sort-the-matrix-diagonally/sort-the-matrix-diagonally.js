@@ -3,33 +3,20 @@
  * @return {number[][]}
  */
 var diagonalSort = function (mat) {
-    const m = mat[0].length;
-    const n = mat.length;
-
-    const jobs = (i, j) => {
+    const jobs = (row, col) => {
         const arr = [];
-        let row = i;
-        let col = j;
 
-        while (mat[row] && mat[row][col]) {
-            arr.push(mat[row][col]);
-            row++;
-            col++;
-        }
+        while (mat[row] && mat[row][col]) arr.push(mat[row++][col++]);
 
         arr.sort((a, b) => a - b)
 
-        while (arr.length) {
-            --row;
-            --col;
-            mat[row][col] = arr.pop()
-        }
+        while (arr.length) mat[--row][--col] = arr.pop()
     }
 
-    for (let col = 0; col < m; col++) {
+    for (let col = 0; col < mat[0].length; col++) {
         jobs(0, col);
     }
-    for (let row = 0; row < n; row++) {
+    for (let row = 0; row < mat.length; row++) {
         jobs(row, 0);
     }
 
