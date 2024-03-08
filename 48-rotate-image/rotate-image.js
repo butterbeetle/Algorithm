@@ -14,8 +14,9 @@ var rotate = function (mat) {
 
     // Reverse
     for (let i = 0; i < n; i++) {
-        for (let j = 0, k = n - 1; j < n / 2; j++, k--) {
-            [mat[i][j], mat[i][k]] = [mat[i][k], mat[i][j]]
-        }
+        mat[i].reverse();
+        // for (let j = 0, k = n - 1; j < n / 2; j++, k--) {
+        //     [mat[i][j], mat[i][k]] = [mat[i][k], mat[i][j]]
+        // }
     }
 };
