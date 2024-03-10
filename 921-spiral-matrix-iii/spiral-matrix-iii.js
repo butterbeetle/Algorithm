@@ -8,6 +8,7 @@
 var spiralMatrixIII = function (rows, cols, rStart, cStart) {
     const output = [[rStart, cStart]];
     const size = rows * cols;
+
     const matrix = Array.from({ length: rows }, () => new Array(cols).fill(0))
     matrix[rStart][cStart] = 1;
 
