@@ -12,27 +12,25 @@ var spiralMatrixIII = function (rows, cols, rStart, cStart) {
     const matrix = Array.from({ length: rows }, () => new Array(cols).fill(0))
     matrix[rStart][cStart] = 1;
 
-    let count = 2;
     let limit = 1;
     let inc = 1;
 
-    while (count <= size) {
+    const isGrid = (rows, cols, rStart, cStart) => {
+        if (cStart >= 0 && cStart < cols && rStart >= 0 && rStart < rows) {
+            output.push([rStart, cStart]);
+        }
+    }
+
+    while (output.length < size) {
         let x = limit;
         while (x--) {
             cStart += inc;
-            if (cStart >= 0 && cStart < cols && rStart >= 0 && rStart < rows) {
-                output.push([rStart, cStart]);
-                matrix[rStart][cStart] = count++;
-            }
+            isGrid(rows, cols, rStart, cStart)
         }
         x = limit;
         while (x--) {
             rStart += inc;
-            if (cStart >= 0 && cStart < cols && rStart >= 0 && rStart < rows) {
-                output.push([rStart, cStart]);
-                matrix[rStart][cStart] = count++;
-
-            }
+            isGrid(rows, cols, rStart, cStart)
         }
         inc *= -1;
         limit++;
