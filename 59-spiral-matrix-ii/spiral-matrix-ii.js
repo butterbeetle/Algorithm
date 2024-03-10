@@ -17,7 +17,6 @@ var generateMatrix = function (n) {
             output[row][col] = count++;
         }
         n--;
-        if(!n) break;
         for (let i = 0; i < n; i++) {
             row += inc;
             output[row][col] = count++;
