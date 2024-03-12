@@ -6,7 +6,6 @@ var isValidSudoku = function (board) {
     const box_start = [0, 3, 6, 27, 30, 33, 54, 57, 60];
 
     for (let i = 0; i < 9; i++) {
-        console.log(`${i} ----------------`)
         const row_set = new Set();
         const col_set = new Set();
         const box_set = new Set();
@@ -15,12 +14,10 @@ var isValidSudoku = function (board) {
         let cnt = 0;
         for (let j = 0; j < 9; j++) {
             // row
-            console.log(row_set)
             if (row_set.has(board[j][i])) return false
             else if (board[j][i] !== ".") row_set.add(board[j][i])
 
             // col
-            console.log(col_set)
             if (col_set.has(board[i][j])) return false
             else if (board[i][j] !== ".") col_set.add(board[i][j])
 
@@ -30,11 +27,7 @@ var isValidSudoku = function (board) {
             const box_col = index % 9 || 0
 
             if (box_row >= 9 || box_col >= 9) break;
-            console.log(index, board[box_row][box_col], box_row, box_col,box_set)
-            if (box_set.has(board[box_row][box_col])) {
-                console.log("why wrong", box_set, board[box_row][box_col])
-                return false
-            }
+            if (box_set.has(board[box_row][box_col])) return false
             else if (board[box_row][box_col] !== ".") box_set.add(board[box_row][box_col])
 
             cnt++
