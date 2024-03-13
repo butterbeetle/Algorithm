@@ -4,11 +4,11 @@
  */
 var pivotInteger = function (n) {
     let prefix = 0;
-    let sum = Array.from({ length: n }, (_, i) => i + 1).reduce((acc, cur) => acc + cur, 0)
+    let total = n * (n + 1) / 2;
 
     for (let i = 1; i <= n; i++) {
+        if (prefix === (total - prefix - i)) return i
         prefix += i
-        if (prefix === (sum - prefix + i)) return i
     }
 
     return -1;
