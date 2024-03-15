@@ -10,10 +10,8 @@ var deckRevealedIncreasing = function (deck) {
     output.push(deck.pop())
 
     while (deck.length) {
-        const num = deck.pop();
-        console.log(output, num)
         output.unshift(output.pop())
-        output.unshift(num)
+        output.unshift(deck.pop())
     }
 
     return output
