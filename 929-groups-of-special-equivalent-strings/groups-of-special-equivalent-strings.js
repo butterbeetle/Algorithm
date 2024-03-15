@@ -13,8 +13,9 @@ var numSpecialEquivGroups = function (words) {
             if (!(i % 2)) even.push(word[i])
             else odd.push(word[i])
         }
-        
-        set.add(odd.sort().join("") + even.sort().join(""))
+
+        const str = odd.sort().join("") + even.sort().join("");
+        set.add(str)
     }
 
     return set.size
