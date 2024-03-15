@@ -2,16 +2,16 @@
  * @param {number[]} deck
  * @return {number[]}
  */
-var deckRevealedIncreasing = function(deck) {
+var deckRevealedIncreasing = function (deck) {
     const output = [];
 
     // pop -> unshift -> 새거 unshift
-    deck.sort((a,b)=>a-b)
+    deck.sort((a, b) => a - b)
     output.push(deck.pop())
 
-    while(deck.length){
+    while (deck.length) {
         const num = deck.pop();
-        console.log(output,num)
+        console.log(output, num)
         output.unshift(output.pop())
         output.unshift(num)
     }
