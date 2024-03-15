@@ -3,11 +3,9 @@
  * @return {number[]}
  */
 var deckRevealedIncreasing = function (deck) {
-    const output = [];
-
     // pop -> unshift -> 새거 unshift
     deck.sort((a, b) => a - b)
-    output.push(deck.pop())
+    const output = [deck.pop()];
 
     while (deck.length) {
         output.unshift(output.pop())
