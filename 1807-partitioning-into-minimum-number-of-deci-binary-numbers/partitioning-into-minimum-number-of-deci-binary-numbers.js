@@ -6,6 +6,7 @@ var minPartitions = function (n) {
     let output = 0;
 
     for (const c of n) {
+        if (output == 9 || c == 9) return 9;
         output = output > c ? output : c
     }
 
