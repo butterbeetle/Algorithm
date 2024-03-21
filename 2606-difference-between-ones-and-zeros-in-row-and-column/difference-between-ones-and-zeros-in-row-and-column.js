@@ -22,11 +22,7 @@ var onesMinusZeros = function (grid) {
 
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
-            const onesR = onesRow[i]
-            const zerosR = rows - onesRow[i];
-            const onesC = onesCol[j]
-            const zerosC = cols - onesCol[j]
-            arr[i][j] = onesR + onesC - zerosR - zerosC
+            arr[i][j] = onesRow[i] + onesCol[j] - (rows - onesRow[i]) - (cols - onesCol[j])
         }
     }
 
