@@ -1,10 +1,11 @@
-/**
+/** 00:26:30
  * @param {number[][]} grid
  * @return {number}
  */
 var maxAreaOfIsland = function (grid) {
     let output = 0;
     let area = 0;
+
     const m = grid.length;
     const n = grid[0].length;
 
@@ -14,16 +15,13 @@ var maxAreaOfIsland = function (grid) {
             grid[row][col] === 0) return;
 
         area += 1;
-        console.log(`grid[${row}][${col}]:${grid[row][col]} ${area}`)
-
-
         grid[row][col] = 0;
-        
+
         findIsland(row + 1, col); // down
         findIsland(row - 1, col); // up
         findIsland(row, col + 1); // right
         findIsland(row, col - 1); // left
-        
+
         return;
     }
 
@@ -35,8 +33,6 @@ var maxAreaOfIsland = function (grid) {
             }
             output = Math.max(output, area)
         }
-        console.log(`Max Area of Island : ${output}`)
-        console.log(`---------------`)
     }
 
     return output
