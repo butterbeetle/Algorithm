@@ -5,9 +5,7 @@
 var setZeroes = function (matrix) {
     const rows = matrix.length;
     const cols = matrix[0].length;
-
-    console.log(rows, cols)
-
+    
     const makeZero = (row, col, direction) => {
         if (row < 0 || col < 0 ||
             row >= rows || col >= cols || matrix[row][col] === "Z") return;
