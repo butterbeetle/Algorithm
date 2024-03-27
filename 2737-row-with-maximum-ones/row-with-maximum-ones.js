@@ -7,7 +7,7 @@ var rowAndMaximumOnes = function (mat) {
     const rows = mat.length;
     const cols = mat[0].length;
 
-    const output = [];
+    let output = [0, 0];
 
     for (let row = 0; row < rows; row++) {
         let cnt = 0;
@@ -16,8 +16,10 @@ var rowAndMaximumOnes = function (mat) {
             if (mat[row][col]) cnt++;
         }
 
-        output.push([row, cnt])
+        if (cnt > output[1]) {
+            output = [row, cnt]
+        }
     }
 
-    return output.sort((a, b) => b[1] - a[1] || a[0] - b[0])[0]
+    return output
 };
