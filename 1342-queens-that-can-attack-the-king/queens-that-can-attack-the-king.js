@@ -5,38 +5,35 @@
  */
 var queensAttacktheKing = function (queens, king) {
     const n = 8;
-
-    const kingRow = king[0];
-    const kingCol = king[1];
+    const directions = [
+        [-1, 0],   // Up
+        [1, 0],    // Down
+        [0, -1],   // Left
+        [0, 1],    // Right
+        [-1, -1],  // Up Left
+        [-1, 1],   // Up Right
+        [1, -1],   // Down Left
+        [1, 1]     // Down Right
+    ];
 
     let output = []
 
-    const found = (row, col, rowInc, colInc) => {
+    const found = (row, col, dx, dy) => {
         if (row < 0 || col < 0 || row >= n || col >= n) return;
 
-        for (let i = 0; i < queens.length; i++) {
-            const [qRow, qCol] = queens[i];
-            if (row === qRow && col === qCol) {
-                output.push(queens[i])
-                return;
-            }
+        if (queens.some(([qx, qy]) => qx === row && qy === col)) {
+            output.push([row, col])
+            return;
         }
 
-        found(row + rowInc, col + colInc, rowInc, colInc)
+        found(row + dx, col + dy, dx, dy)
     }
 
-    found(kingRow - 1, kingCol - 1, -1, -1)
-    found(kingRow - 1, kingCol, -1, 0)
-    found(kingRow - 1, kingCol + 1, -1, 1)
-
-
-    found(kingRow, kingCol - 1, 0, -1)
-    found(kingRow, kingCol + 1, 0, 1)
-
-
-    found(kingRow + 1, kingCol - 1, 1, -1)
-    found(kingRow + 1, kingCol, 1, 0)
-    found(kingRow + 1, kingCol + 1, 1, 1)
+    for (const [dx, dy] of directions) {
+        let row = king[0] + dx;
+        let col = king[1] + dy;
+        found(row, col, dx, dy)
+    }
 
     return output
 };
