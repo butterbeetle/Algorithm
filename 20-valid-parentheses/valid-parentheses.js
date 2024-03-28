@@ -4,11 +4,15 @@
  */
 var isValid = function (str) {
     const stack = [];
-    const isTrue = ["()", "[]", "{}"]
+    let isTrue = {
+        ")": "(",
+        "}": "{",
+        "]": "["
+    };
 
     for (const s of str) {
         if (s === "(" || s === "[" || s === "{") stack.push(s);
-        else if (!isTrue.includes(stack.pop() + s)) return false
+        else if (isTrue[s] !== stack.pop()) return false
     }
 
     return !(stack.length > 0)
