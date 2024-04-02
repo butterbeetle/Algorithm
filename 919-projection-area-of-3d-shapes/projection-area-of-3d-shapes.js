@@ -15,17 +15,17 @@ var projectionArea = function (grid) {
 
     for (let row = 0; row < n; row++) {
         let bMax = 0;
+        let cMax = 0;
+
         for (let col = 0; col < n; col++) {
             if (grid[row][col]) a += 1;
             bMax = Math.max(bMax, grid[row][col])
-        }
-        b += bMax;
-
-        let cMax = 0;
-        for (let col = 0; col < n; col++) {
             cMax = Math.max(cMax, grid[col][row])
         }
+
+        b += bMax;
         c += cMax;
+
     }
 
     return a + b + c
