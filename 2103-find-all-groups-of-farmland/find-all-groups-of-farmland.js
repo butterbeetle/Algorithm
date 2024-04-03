@@ -22,9 +22,8 @@ var findFarmland = function (land) {
 
     for (let row = 0; row < rows; row++) {
         for (let col = 0; col < cols; col++) {
-            let tmp = [[row, col]];
             if (land[row][col]) {
-                findGroup(row, col, tmp)
+                findGroup(row, col)
                 output.push([row, col, bRow, bCol])
                 bRow = 0;
                 bCol = 0;
