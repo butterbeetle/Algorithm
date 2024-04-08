@@ -18,7 +18,7 @@ var getMaximumGold = function (grid) {
 
         grid[row][col] = tmp;
 
-        return tmp + max
+        return grid[row][col] + max
     }
 
     for (let row = 0; row < rows; row++) {
