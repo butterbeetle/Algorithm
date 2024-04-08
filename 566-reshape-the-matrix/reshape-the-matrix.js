@@ -17,7 +17,6 @@ var matrixReshape = function (mat, r, c) {
 
     for (let row = 0; row < r; row++) {
         for (let col = 0; col < c; col++) {
-            console.log(`mat[${sr}][${sc}] -> grid[${row}][${col}]`)
             grid[row][col] = mat[sr][sc]
             sc++;
             if (sc === cols) {
@@ -26,8 +25,6 @@ var matrixReshape = function (mat, r, c) {
             }
         }
     }
-
-    console.log(grid)
 
     return grid
 };
