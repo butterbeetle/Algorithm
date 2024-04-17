@@ -7,10 +7,13 @@ var maxCoins = function (piles) {
 
     piles.sort((a, b) => a - b);
 
-    while (piles.length) {
-        piles.pop();
-        output += piles.pop();
-        piles.shift();
+    let i = 0;
+    let j = piles.length - 2;
+
+    while (i < j) {
+        output += piles[j];
+        i++;
+        j -= 2;
     }
 
     return output
